@@ -52,7 +52,7 @@ const TeacherLoginPage = (props) => {
                         <div className="button">
                             <center>
                                 <input type="submit" value="Sign in " onClick={(e) => loginUser(e)} style={{ cursor: 'pointer', marginBottom: '20px' }} />
-                                <p style={{ fontSize: 'medium', color: '#000000' }}>Don't have an account? <span onClick={() => { props.history.push('/register') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Signup</span></p><br />
+                                <p style={{ fontSize: 'medium', color: '#000000' }}>Don't have an account? <span onClick={() => { props.history.push('/teacher-register') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Signup</span></p><br />
                                 <p style={{ fontSize: 'medium', color: '#000000' }}>Not a Teacher? <span onClick={() => { props.history.push('/login') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Login as a student</span></p>
                             </center>
                         </div>

@@ -76,7 +76,8 @@ const Registerpage = (props) => {
                     <div className="button">
                         <center>
                             <input type="submit" value="Register" onClick={(e) => registerUser(e)} style={{ cursor: 'pointer', marginBottom: '20px' }} />
-                            <p>Already have an account? <span onClick={() => { props.history.push('/login') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Login</span></p>
+                            <p>Already have an account? <span onClick={() => { props.history.push('/teacher-login') }} style={{ cursor: 'pointer', textDecoration: 'underline', marginBottom: '20px' }}>Login</span></p>
+                            <p style={{ fontSize: 'medium', color: '#000000' }}>Not a Student? <span onClick={() => { props.history.push('/register') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Signup as a student</span></p>
                         </center>
                     </div>
 

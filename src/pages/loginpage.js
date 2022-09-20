@@ -53,7 +53,7 @@ const LoginPage = (props) => {
                             <center>
                                 <input type="submit" value="Sign in " onClick={(e) => loginUser(e)} style={{ cursor: 'pointer', marginBottom: '20px' }} />
                                 <p style={{ fontSize: 'medium', color: '#000000' }}>Don't have an account? <span onClick={() => { props.history.push('/register') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Signup</span></p><br />
-                                <p style={{ fontSize: 'medium', color: '#000000' }}>Not a student? <span onClick={() => { props.history.push('/teacherLogin') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Login in as teacher</span></p>
+                                <p style={{ fontSize: 'medium', color: '#000000' }}>Not a student? <span onClick={() => { props.history.push('/teacher-login') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Login in as teacher</span></p>
                             </center>
                         </div>
 
