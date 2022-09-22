@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './register.css'
-import { firestore } from '../firebase/firebase-utils'
+import { firestore } from '../../firebase/firebase-utils'
 
 const Registerpage = (props) => {
     const [username, setusername] = useState('');
@@ -29,7 +29,7 @@ const Registerpage = (props) => {
 
     return (
         <div>
-            <div className="register">
+            <div className="register" style={{ marginLeft: '70%', marginTop: '12%' }}>
                 <div className="title"> <u>Teacher Registration</u></div><br /><br />
                 <form action="#">
                     <div className="user-details">

@@ -1,12 +1,12 @@
 import React from "react";
 import './pages/styles.css'
 import { Switch, Route } from 'react-router-dom';
-import HomePage from './pages/Homepage'
-import LoginPage from "./pages/loginpage";
-import RegisterPage from "./pages/registerpage";
-import TeacherRegistration from "./pages/TeacherRegistration";
-import TeacherLogin from "./pages/TeacherLogin";
-import TeacherDashboard from "./pages/TeacherDashboard"
+import HomePage from './pages/student/Homepage'
+import LoginPage from "./pages/student/loginpage";
+import RegisterPage from "./pages/student/registerpage";
+import TeacherRegistration from "./pages/teacher/TeacherRegistration";
+import TeacherLogin from "./pages/teacher/TeacherLogin";
+import TeacherDashboard from "./pages/teacher/TeacherDashboard"
 
 function App() {
   return (

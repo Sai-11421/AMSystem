@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css'
-import logo from './rgukt.png'
-import { firestore } from '../firebase/firebase-utils'
+import logo from '..assets/rgukt.png'
+import { firestore } from '../../firebase/firebase-utils'
 
 
-const LoginPage = (props) => {
+const TeacherLoginPage = (props) => {
 
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
@@ -14,7 +14,7 @@ const LoginPage = (props) => {
 
     useEffect(() => {
         let data = []
-        firestore.collection('Students').get()
+        firestore.collection('Teachers').get()
             .then((querySnapshot) => {
                 querySnapshot.docs.map((doc) => {
                     data = [...data, doc.data()]
@@ -28,8 +28,8 @@ const LoginPage = (props) => {
         let student = students.filter((s) => s.username === username && s.password === password)
         if (student.length !== 0) {
             seterror('')
-            props.history.push('/')
-            localStorage.setItem('username', username)
+            localStorage.setItem('teacher-username', username)
+            props.history.push('/teacher-dashboard')
             alert('Logged in successfully')
         } else {
             seterror('Invalid username/password')
@@ -43,7 +43,7 @@ const LoginPage = (props) => {
                     <h5 style={{ color: '#000', marginTop: '-100px', marginLeft: '280px' }}><b>ATTENDANCE MANAGEMENT SYSTEM</b></h5>
                 </div>
                 <div className="main">
-                    <p id="sign">Student Sign in</p>
+                    <p id="sign">Teacher Sign in</p>
                     <form className="form1">
                         <input className="un" type="text" align="center" placeholder="Username" onChange={(e) => setusername(e.target.value)} />
                         <input className="pass" type="password" align="center" placeholder="Password" onChange={(e) => setpassword(e.target.value)} />
@@ -52,8 +52,8 @@ const LoginPage = (props) => {
                         <div className="button">
                             <center>
                                 <input type="submit" value="Sign in " onClick={(e) => loginUser(e)} style={{ cursor: 'pointer', marginBottom: '20px' }} />
-                                <p style={{ fontSize: 'medium', color: '#000000' }}>Don't have an account? <span onClick={() => { props.history.push('/register') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Signup</span></p><br />
-                                <p style={{ fontSize: 'medium', color: '#000000' }}>Not a student? <span onClick={() => { props.history.push('/teacher-login') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Login in as teacher</span></p>
+                                <p style={{ fontSize: 'medium', color: '#000000' }}>Don't have an account? <span onClick={() => { props.history.push('/teacher-register') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Signup</span></p><br />
+                                <p style={{ fontSize: 'medium', color: '#000000' }}>Not a Teacher? <span onClick={() => { props.history.push('/login') }} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Login as a student</span></p>
                             </center>
                         </div>
 
@@ -66,4 +66,4 @@ const LoginPage = (props) => {
     );
 };
 
-export default LoginPage;
+export default TeacherLoginPage;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { firestore } from '../firebase/firebase-utils'
+import { firestore } from '../../firebase/firebase-utils'
 import { Tabs, Tab, Form, Button, Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
