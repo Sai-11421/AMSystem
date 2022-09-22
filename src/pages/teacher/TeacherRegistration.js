@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './register.css'
+import '../register.css'
 import { firestore } from '../../firebase/firebase-utils'
 
 const Registerpage = (props) => {

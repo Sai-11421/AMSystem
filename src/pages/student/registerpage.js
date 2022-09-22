@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { firestore } from '../../firebase/firebase-utils'
-import './register.css'
+import '../register.css'
 
 const Registerpage = (props) => {
     const [name, setname] = useState('');

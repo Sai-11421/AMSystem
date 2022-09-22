@@ -7,6 +7,7 @@ import RegisterPage from "./pages/student/registerpage";
 import TeacherRegistration from "./pages/teacher/TeacherRegistration";
 import TeacherLogin from "./pages/teacher/TeacherLogin";
 import TeacherDashboard from "./pages/teacher/TeacherDashboard"
+import ModifyAttendance from "./pages/teacher/ModifyAttendance"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/teacher-register' component={TeacherRegistration} />
         <Route path='/teacher-login' component={TeacherLogin} />
         <Route path='/teacher-dashboard' component={TeacherDashboard} />
+        <Route path='/modify-attendance' component={ModifyAttendance}/>
       </Switch>
     </div>
   );

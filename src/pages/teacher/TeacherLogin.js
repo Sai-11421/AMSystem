@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './styles.css'
-import logo from '..assets/rgukt.png'
+import '../styles.css'
+import logo from '../../assets/rgukt.png'
 import { firestore } from '../../firebase/firebase-utils'
 
 
