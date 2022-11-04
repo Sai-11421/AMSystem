@@ -9,8 +9,17 @@ const Registerpage = (props) => {
     const [idnumber, setidnumber] = useState('');
     const [password, setpassword] = useState('');
     const [gender, setgender] = useState('');
+    const [uppercase, setuppercase] = useState(false);
+    const [numbers, setnumbers] = useState(false);
+    const [specialChar, setspecialChar] = useState(false);
 
     const registerUser = (e) => {
+        let pattern = '^[a-z0-9](\.?[a-z0-9]){5,}@rguktsklm.ac.in$'
+        if (!email.match(pattern)) {
+            alert('invalid email')
+            return
+        }
+        alert('valid')
         e.preventDefault()
         firestore.collection('Students').doc().set({
             'name': name,
@@ -26,9 +35,32 @@ const Registerpage = (props) => {
             .catch((err) => console.log(err))
     }
 
+
+    const updatePassword = (password) => {
+        setpassword(password)
+        let upperCaseLetters = /[A-Z]/g
+        if (password.match(upperCaseLetters)) {
+            setuppercase(true)
+        } else {
+            setuppercase(false)
+        }
+        let numbers = /[0-9]/g;
+        if (password.match(numbers)) {
+            setnumbers(true)
+        } else {
+            setnumbers(false)
+        }
+        let specialChar = /[@#$%]/g;
+        if (password.match(specialChar)) {
+            setspecialChar(true)
+        } else {
+            setspecialChar(false)
+        }
+    }
+
     return (
         <div style={{ alignItems: 'center', justifyContent: 'center' }}>
-            <div className="register" style={{ marginLeft: '70%', marginTop:'15%' }}>
+            <div className="register" style={{ marginLeft: '70%', marginTop: '15%' }}>
                 <div className="title"> <u>Student Registration</u></div><br /><br />
                 <form action="#">
                     <div className="user-details">
@@ -50,11 +82,24 @@ const Registerpage = (props) => {
                         </div>
                         <div className="input-box">
                             <span className="details">Password</span>
-                            <input type="password" placeholder="Enter your Password" required onChange={(e) => setpassword(e.target.value)} />
+                            <input type="password" placeholder="Enter your Password" required onChange={(e) => updatePassword(e.target.value)} />
                         </div>
                         <div className="input-box">
                             <span className="details">Confirm Password</span>
                             <input type="password" placeholder="Confirm your Password" required />
+                        </div>
+                        <div className='input-box'>
+                            <div style={{ display: 'flex' }}>
+                                <input type='checkbox' style={{ width: '15px' }} checked={uppercase} />&nbsp;&nbsp;<span style={{ marginTop: '10px' }}>Capital Letters</span>
+                            </div>
+                            <div style={{ display: 'flex' }}>
+                                <input type='checkbox' style={{ width: '15px' }} checked={numbers} />&nbsp;&nbsp;<span style={{ marginTop: '10px' }}>Numbers</span>
+                            </div>
+                            <div style={{ display: 'flex' }}>
+                                <input type='checkbox' style={{ width: '15px' }} checked={specialChar} />&nbsp;&nbsp;<span style={{ marginTop: '10px' }}>Special Characters</span>
+                            </div>
+                            {/* <input type='checkbox' style={{ width: '15px', marginBottom: '-10px' }} />Numbers
+                            <input type='checkbox' style={{ width: '15px', marginBottom: '-10px' }} /> */}
                         </div>
                     </div><br />
                     <div className="gender-details">
